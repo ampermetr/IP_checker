@@ -37,7 +37,7 @@ class FormLayout(QtGui.QWidget):
         
         self.lock = 1
         
-        file = QtGui.QFileDialog().getOpenFileName(self, caption="Select file", directory="/home/user/calc/Weapon/S")
+        file = QtGui.QFileDialog().getOpenFileName(self, caption="Select file", directory="/home/user")
         current_file = open(file, "r")
         content_table = current_file.readlines()
         self.model.setRowCount(len(content_table))
@@ -83,7 +83,7 @@ class FormLayout(QtGui.QWidget):
                 else:
                     table += ("~" + self.model.data(self.model.index(x, y)))
 
-        save_file = QtGui.QFileDialog.getSaveFileName(self, caption="Select file", directory="/home/user/calc/Weapon/S")
+        save_file = QtGui.QFileDialog.getSaveFileName(self, caption="Select file", directory="/home/user")
         file = open(save_file, "w")
         file.write(table)
         file.close()
@@ -108,7 +108,7 @@ class FormLayout(QtGui.QWidget):
                             self.model.takeItem(item, x)
                         new_ip = QtGui.QStandardItem(ip)
                         self.model.setItem(item, 1, new_ip)
-                        new_ip.setEditable(False) #хз требуется или нет
+                        new_ip.setEditable(False) 
                         self.get_info(item, ip)
                 
             if lock == 0:
